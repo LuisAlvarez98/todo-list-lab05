@@ -8,14 +8,6 @@ const postElement = () => {
     todoArray.push(todoField);
     displayList(todoArray[todoArray.length - 1]);
     document.getElementById("todoField").value = "";
-
-    let warning = document.getElementById("warning");
-    warning.textContent = "";
-  } else {
-    let text = document.createElement("p");
-    text.setAttribute("id", "warning");
-    text.textContent = "Please input something!";
-    fieldSet.appendChild(text);
   }
 };
 
