@@ -1,57 +1,43 @@
 let todoArray = [];
-
+//Post element into the list
 const postElement = () => {
-  let todoField = document.getElementById("todoField").value;
-  let fieldSet = document.getElementById("field-set");
-
+  let todoField = $("#todoField").val();
   if (todoField != "") {
     todoArray.push(todoField);
     displayList(todoArray[todoArray.length - 1]);
-    document.getElementById("todoField").value = "";
+    $("#todoField").val("");
   }
 };
-
-let list = document.getElementById("list");
-
+//Creates the list of items
 const displayList = (item) => {
-  let p = document.createElement("p");
-
-  let input = document.createElement("input");
-  input.setAttribute("type", "checkbox");
-  input.setAttribute("id", "task");
-  input.style.marginRight = "5px";
-
-  let label = document.createElement("label");
-  label.textContent = item;
-
-  p.appendChild(input);
-  p.appendChild(label);
-
-  list.appendChild(p);
+  $("#list").append(`
+  <p>
+    <input type="checkbox" id="task" style="margin-right:5px"/>
+    <label> ${item}</label>
+  </p>`);
 };
 /**
- * Method that checks all the elements of the list
+ * Checks all the elements of the list
  */
-const checkAll = () => {
-  let arrayElems = list.querySelectorAll("#task");
-  arrayElems.forEach((item) => {
-    item.checked = true;
+$("#btnCheckAll").on("click", () => {
+  $("#list #task").each(function () {
+    $(this).prop("checked", true);
   });
-};
+});
+
 /**
- * Method that unchecks all the elements of the list
+ * Unchecks all the elements of the list
  */
-const uncheckAll = () => {
-  let arrayElems = list.querySelectorAll("#task");
-  arrayElems.forEach((item) => {
-    item.checked = false;
+$("#btnUnCheckAll").on("click", () => {
+  $("#list #task").each(function () {
+    $(this).prop("checked", false);
   });
-};
+});
+
 /**
  * Clears out all the task list.
  */
-const deleteAllElements = () => {
-  // clear array and the text content of the list
+$("#btnDeleteAll").on("click", () => {
   todoArray = [];
-  list.textContent = "";
-};
+  $("#list").empty();
+});

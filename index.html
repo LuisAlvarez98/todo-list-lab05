@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     <header class="navbar navbar-default">
@@ -49,21 +50,21 @@
               <div class="panel-body" class="listOfTodos" id="list"></div>
               <div class="buttons">
                 <button
-                  onclick="uncheckAll()"
+                  id="btnUnCheckAll"
                   type="button"
                   class="clearButton btn-info"
                 >
                   Clear all Todo's
                 </button>
                 <button
-                  onclick="checkAll()"
+                  id="btnCheckAll"
                   type="button"
                   class="markAllButton btn-success"
                 >
                   Mark all Todo's
                 </button>
                 <button
-                  onclick="deleteAllElements()"
+                  id="btnDeleteAll"
                   type="button"
                   class="deleteButton btn-danger"
                 >
